@@ -1,7 +1,8 @@
 import { Plane, Search, MapPin, Calendar } from "lucide-react";
 import HeroImg from "../assets/Hero-bg.avif";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 
 const Hero = () => {
@@ -11,24 +12,8 @@ const [date, setDate] = useState("");
 const [loading, setLoading] = useState(false);
 const navigate = useNavigate();
 
-// const handleSearch = async () => {
-//   if (!from || !to || !date) return alert("Fill all fields");
-
-//   setLoading(true);
-//   try {
-//     const res = await fetch(
-//       `http://localhost:5000/flights?from=${from}&to=${to}&date=${date}`
-//     );
-//     const data = await res.json();
-//     console.log("Flights:", data); // 👉 later results page/section এ দেখাবে
-//   } catch (e) {
-//     alert("Search failed");
-//   } finally {
-//     setLoading(false);
-//   }
-// };
 const handleSearch = () => {
-  if (!from || !to || !date) return alert("Fill all fields");
+  if (!from || !to || !date) return toast("Fill all fields");
   navigate(`/flights?from=${from}&to=${to}&date=${date}`);
 };
   return (
@@ -51,7 +36,7 @@ const handleSearch = () => {
 
           <h1 className="text-3xl  font-extrabold leading-tight">
             Find the best Flights in minutes <br />
-            <span className="text-sky-200">with real-time prices</span>
+            with real-time prices
           </h1>
 
           <p className="mt-5 text-white/90 max-w-xl">
@@ -60,19 +45,19 @@ const handleSearch = () => {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-4">
-            <a
-              href="#search"
+            <Link
+              to="/flights"
               className="inline-flex items-center gap-2 bg-white text-sky-600 font-semibold px-6 py-3 rounded-xl shadow hover:scale-105 transition"
             >
               <Search size={18} /> Search Flights
-            </a>
+            </Link>
 
-            <a
-              href="/deals"
+            <Link
+              to="/my-trips"
               className="inline-flex items-center gap-2 border border-white/60 px-6 py-3 rounded-xl hover:bg-white/10 transition"
             >
-              Explore Deals
-            </a>
+              Explore My Trips
+            </Link>
           </div>
         </div>
 
