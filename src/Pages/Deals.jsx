@@ -16,7 +16,10 @@ const Deals = () => {
 
   useEffect(() => {
     if (!flight) {
-      fetch("http://localhost:5000/deals")
+        fetch("https://fly-mate-server.vercel.app/api/deals")
+    //   fetch("http://localhost:5000/deals")
+    // fetch("/api/deals")
+
         .then(res => res.json())
         .then(data => {
           setDetails(data[0] || null);

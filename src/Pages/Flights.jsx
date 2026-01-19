@@ -27,9 +27,10 @@ const Flights = () => {
     if (!from || !to || !date) return;
 
     setLoading(true);
-    const res = await fetch(
-      `http://localhost:5000/flights?from=${from}&to=${to}&date=${date}`
-    );
+    const res = await
+     fetch(`https://fly-mate-server.vercel.app/api/flights?from=${from}&to=${to}&date=${date}`)
+    // fetch(`/flights?from=${from}&to=${to}&date=${date}`)
+    // fetch(`/api/flights?from=${from}&to=${to}&date=${date}`);
     const data = await res.json();
 
     if (Array.isArray(data)) {
