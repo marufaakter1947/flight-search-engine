@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router";
 import Loading from "./Loading";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import toast, { Toaster } from "react-hot-toast";
+import { AuthContext } from "../Context/AuthContext";
 
 const Deals = () => {
+  const { user, loading: authLoading } = useContext(AuthContext);
   const location = useLocation();
   const flight = location.state?.flight;
   const [details, setDetails] = useState(flight || null);
   const [loading, setLoading] = useState(!flight);
-   const navigate = useNavigate();
-
+  const navigate = useNavigate();
   const [priceTrend, setPriceTrend] = useState([]);
 
   useEffect(() => {
@@ -39,21 +40,36 @@ const Deals = () => {
     }
   }, [flight]);
 
-  if (loading) return <Loading />;
-
+  if (loading || authLoading) return <Loading />;
   if (!details) return <p className="text-center text-gray-500">No deal data available</p>;
 
-  const handleBook = () => {
-    toast.success("This flight booked successfully!");
-     setTimeout(() => {
-      navigate("/");
+const handleBook = () => {
+  if (!user) {
+    toast.error("Please login first to book this flight!");
+    setTimeout(() => {
+      navigate("/login");
     }, 1500);
-  };
+    return;
+  }
+
+  toast.success("This flight booked successfully!");
+
+  // Save flight to MyTrips (localStorage) with userId for filter current user
+  const bookedFlights = JSON.parse(localStorage.getItem("myTrips") || "[]");
+  bookedFlights.push({
+    ...details,
+    userId: user.uid,
+  });
+  localStorage.setItem("myTrips", JSON.stringify(bookedFlights));
+
+  setTimeout(() => {
+    navigate("/my-trips");
+  }, 1500);
+};
 
   return (
     <div className="py-5">
       <Toaster position="top-right" />
-      
       {/* Heading */}
       <div className="text-center mb-6">
         <h1 className="text-3xl md:text-4xl font-extrabold text-sky-600">Flight Deal Details</h1>
@@ -62,11 +78,8 @@ const Deals = () => {
 
       {/* Deal Card */}
       <div className="bg-white rounded-2xl shadow-lg p-6 space-y-6 relative">
-        
         {/* Discount Badge */}
-        <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm">
-          30% OFF
-        </div>
+        <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm">30% OFF</div>
 
         {/* Flight Route */}
         <h2 className="font-bold text-xl mb-2">
@@ -74,7 +87,7 @@ const Deals = () => {
         </h2>
 
         {/* Flight Segments */}
-        {details.itineraries && details.itineraries.map((itin, i) => (
+        {details.itineraries?.map((itin, i) => (
           <div key={i} className="border p-4 rounded-lg space-y-2">
             <p><span className="font-semibold">Duration:</span> {itin.duration}</p>
             {itin.segments.map((seg, j) => (

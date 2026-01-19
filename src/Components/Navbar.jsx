@@ -76,11 +76,13 @@ const Navbar = () => {
                 Deals
               </NavLink>
             </li> */}
+            {user && (
             <li>
               <NavLink to="/my-trips" className={activeNavLink}>
                 My Trips
               </NavLink>
             </li>
+          )}
           </ul>
         </div>
         <NavLink
