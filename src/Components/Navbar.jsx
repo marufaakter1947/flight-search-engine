@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar px-6 bg-base-100 shadow-sm ">
+    <div className="navbar px-6 py-0 min-h-8  bg-base-100 shadow-sm sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -57,17 +57,17 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/my-profile" className={activeNavLink}>
+              <NavLink to="/flights" className={activeNavLink}>
                 Flights
               </NavLink>
             </li>
             <li>
-              <NavLink to="/skills" className={activeNavLink}>
+              <NavLink to="/deals" className={activeNavLink}>
                 Deals
               </NavLink>
             </li>
             <li>
-              <NavLink to="/skills" className={activeNavLink}>
+              <NavLink to="/my-trips" className={activeNavLink}>
                 My Trips
               </NavLink>
             </li>
@@ -101,7 +101,7 @@ const Navbar = () => {
           </li>
            {user && (
             <li>
-              <NavLink to="/my-profile" className={activeNavLink}>
+              <NavLink to="/my-trips" className={activeNavLink}>
                 My Trips
               </NavLink>
             </li>
