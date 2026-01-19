@@ -1,16 +1,119 @@
-# React + Vite
+# FlyMate – Flight Search Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Link: 
 
-Currently, two official plugins are available:
+FlyMate is a modern, responsive, and user-friendly flight booking web application built with **React**, **Tailwind CSS**, **Firebase Authentication**, and **Amadeus Flight API**. It allows users to search for flights, view hot deals, book flights, and manage their trips.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Flight Search & Booking
+- Search flights by **origin, destination, and date**.
+- View detailed flight information including **segments, departure/arrival times, and airline**.
+- Live **price trend chart** for selected flights.
+- **Book Now** button with **React Hot Toast** notifications.
 
-## Expanding the ESLint configuration
+### User Authentication
+- Sign up and login using **Email/Password** or **Google OAuth**.
+- User session management with **Firebase Authentication**.
+- Conditional features: only logged-in users can book flights.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Deals & Trips
+- **Hot Deals** page showing special flight offers with discount badges.
+- **My Trips** page showing all booked flights in a table format.
+- Saved trips stored in **localStorage** (can be integrated with backend).
+
+### Home Page
+- Hero section with **Search Flights** and **Explore My Trips** links and **Quick Search** Sections.
+- Popular Routes, Destinations, Testimonials, Why Choose Us, How It Works, and FAQ sections.
+- Smooth scrolling navigation from footer to specific sections.
+- Eye-catching animations and gradient styling.
+
+### Footer
+- Quick navigation links to page sections.
+- Links to **Privacy Policy** and **Terms of Service** pages.
+
+---
+
+## Tech Stack
+
+- **Frontend:** React, React Router, Tailwind CSS, Recharts, React Hot Toast
+- **Authentication:** Firebase Auth (Email/Password & Google Sign-In)
+- **Backend:** Node.js, Express (for Amadeus Flight API proxy)
+- **APIs:** [Amadeus Flight API](https://developers.amadeus.com/)
+- **State Management:** React Context API
+
+## Setup Instructions
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/yourusername/flymate.git
+cd flymate
+Install dependencies:
+
+bash
+Copy code
+npm install
+Setup environment variables (create .env file in root):
+
+env
+Copy code
+VITE_apiKey=your_apikey
+VITE_authDomain=you_authDomain
+VITE_projectId=your_projectId
+VITE_storageBucket=your_storageBucket
+VITE_messagingSenderId=your_messagingSenderId
+VITE_appId=your_appId
+
+AMADEUS_API_KEY=your_amadeus_test_key
+AMADEUS_API_SECRET=your_amadeus_test_secret
+Start the backend server (for flight API proxy):
+
+bash
+Copy code
+cd backend
+npm install
+node server.js
+Start the frontend:
+
+bash
+Copy code
+npm start
+Open http://localhost:3000 in your browser.
+
+###
+Pages
+Home: Hero, Popular Routes, Testimonials, Destinations, Why Choose Us, How It Works, FAQ.
+
+Flights: Flight search results, detailed flight info, price trends, and booking.
+
+Deals: Hot flight deals with discount badges and booking option.
+
+My Trips: Table showing user’s booked flights.
+
+Login / Signup: Firebase authentication forms.
+
+Privacy Policy / Terms: Informational pages.
+
+###
+Design Highlights
+Gradient text & icons for active navigation.
+
+Animated Hero and How It Works sections.
+
+Responsive layout for desktop, tablet, and mobile.
+
+Eye-catching cards for deals, destinations, and testimonials.
+
+Smooth scroll to sections from footer links.
+
+###
+Future Enhancements
+Connect My Trips with backend database (MongoDB or Firebase Firestore) instead of localStorage.
+
+Implement seat selection and payment gateway integration.
+
+Real-time flight price updates using Amadeus API.
+
+Multi-language support and accessibility improvements.
