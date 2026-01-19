@@ -5,6 +5,8 @@ import Home from "../Pages/Home";
 import RootLayout from "../Layouts/RootLayout";
 import ErrorPage from "../Pages/ErrorPage";
 import Flights from "../Pages/Flights";
+import Deals from "../Pages/Deals";
+import About from "../Pages/About";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/flights",
         element: <Flights></Flights>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/deals",
+        element: <Deals></Deals>,
       },
       
      
