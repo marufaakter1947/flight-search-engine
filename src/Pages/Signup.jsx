@@ -102,7 +102,7 @@ const Signup = () => {
         <div className="hero bg-base-200 min-h-screen  ">
           <div className="hero-content flex-col  ">
             <div className="card bg-base-100 w-full max-w-sm  sm:max-w-md md:max-w-lg  shadow-2xl p-6">
-              <h1 className="text-3xl md:text-5xl font-bold text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">
+              <h1 className="text-3xl md:text-5xl font-bold text-center text-sky-600 mb-4 animate__animated animate__bounce animate__infinite animate__slow">
                 Join Us Today!
               </h1>
               <form onSubmit={handleSignup}>
@@ -168,14 +168,14 @@ const Signup = () => {
                     </div>
 
                     <div className="flex justify-center">
-                      <button className="btn btn-neutral w-full max-w-full mt-4">
+                      <button className="btn btn-neutral bg-[linear-gradient(125.07deg,#38BDF8,#0EA5E9)] w-full max-w-full mt-4">
                         Register
                       </button>
                     </div>
                     <div className="flex justify-center">
                       <button
                         onClick={handleGoogleSignin}
-                        className="btn btn-neutral w-full max-w-full mt-4"
+                        className="btn bg-[linear-gradient(125.07deg,#38BDF8,#0EA5E9)] btn-neutral w-full max-w-full mt-4"
                       >
                         <FcGoogle /> Continue with Google
                       </button>
@@ -183,7 +183,7 @@ const Signup = () => {
                     <p className="font-semibold text-center pt-5">
                       Already Have an account?{" "}
                       <Link
-                        className="text-secondary hover:underline"
+                        className=" hover:underline text-sky-800"
                         to="/login"
                       >
                         Login

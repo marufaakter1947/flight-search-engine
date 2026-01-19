@@ -13,7 +13,7 @@ const Login = () => {
   const [show, setShow] = useState(false);
   //   const [email,setEmail] = useState(null);
   const emailRef = useRef(null);
-  const navigate = useNavigate();
+  
 
   const {
     signInWithEmailAndPasswordFunc,
@@ -75,10 +75,7 @@ const Login = () => {
       });
   };
 
-  const handleForgetRedirect = () => {
-    const email = emailRef.current.value;
-    navigate("/forget-password", { state: { email } });
-  };
+ 
   //   console.log(email);
 
   return (
@@ -86,7 +83,7 @@ const Login = () => {
       <div className="hero-content flex-col  ">
         <form onSubmit={handleSignin}>
           <div className="card bg-base-100 w-full max-w-sm  sm:max-w-md md:max-w-lg shadow-2xl p-6">
-            <h1 className="text-3xl md:text-5xl font-bold text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">
+            <h1 className="text-3xl md:text-5xl font-bold text-sky-600 text-center mb-4 animate__animated animate__bounce animate__infinite animate__slow">
               Login now!
             </h1>
 
@@ -122,23 +119,17 @@ const Login = () => {
                   </span>
                 </div>
                 <div className="text-blue-400">
-                  <button
-                    type="button"
-                    onClick={handleForgetRedirect}
-                    className="link link-hover"
-                  >
-                    Forgot password?
-                  </button>
+                  
                 </div>
                 <div className="flex justify-center">
-                  <button className="btn btn-neutral w-full max-w-full mt-4">
+                  <button className="btn btn-neutral bg-[linear-gradient(125.07deg,#38BDF8,#0EA5E9)] w-full max-w-full mt-4">
                     Login
                   </button>
                 </div>
                 <div className="flex justify-center">
                   <button
                     onClick={handleGoogleSignin}
-                    className="btn btn-neutral w-full max-w-full mt-4"
+                    className="btn bg-[linear-gradient(125.07deg,#38BDF8,#0EA5E9)] btn-neutral w-full max-w-full mt-4"
                   >
                     <FcGoogle /> Continue with Google
                   </button>
@@ -146,7 +137,7 @@ const Login = () => {
 
                 <p className="font-semibold text-center pt-5">
                   Don't Have an account?{" "}
-                  <Link className="text-secondary hover:underline" to="/signup">
+                  <Link className="text-sky-800 hover:underline" to="/signup">
                     Register
                   </Link>
                 </p>

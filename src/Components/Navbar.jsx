@@ -4,6 +4,7 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import toast from "react-hot-toast";
 import { FadeLoader } from "react-spinners";
+// import { IoHome } from "react-icons/io5";
 
 const Navbar = () => {
   const { user, setUser, signOutFunc, loading } = useContext(AuthContext);
@@ -53,7 +54,7 @@ const Navbar = () => {
           >
             <li>
               <NavLink to="/" className={activeNavLink}>
-                Home
+             Home
               </NavLink>
             </li>
             <li>
@@ -97,7 +98,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 text-[#000000e6] font-semibold text-[16px] [&_li>a:hover]:bg-transparent!">
           <li>
             <NavLink to="/" className={activeNavLink}>
-              Home
+             Home
             </NavLink>
           </li>
          
@@ -148,7 +149,7 @@ const Navbar = () => {
 
             <button
               onClick={handleSignout}
-              className="btn bg-[linear-gradient(125.07deg,#89F336,#458018)] text-white text-[16px] font-semibold"
+              className="btn bg-[linear-gradient(125.07deg,#38BDF8,#0EA5E9)] text-white text-[16px] font-semibold"
             >
               Logout
             </button>
