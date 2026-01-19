@@ -23,7 +23,7 @@ const FAQ = () => {
   const [open, setOpen] = useState(null);
 
   return (
-    <section className="py-5 mt-10 rounded bg-linear-to-b from-sky-200 to-white">
+    <section id="faq" className="py-5 mt-10 rounded bg-linear-to-b from-sky-200 to-white">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center text-sky-600 ">
          Frequently Asked Questions

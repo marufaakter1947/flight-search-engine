@@ -10,6 +10,7 @@ import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import MyTrips from "../Pages/MyTrips";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
             <MyTrips></MyTrips>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy></PrivacyPolicy>,
       },
 
       

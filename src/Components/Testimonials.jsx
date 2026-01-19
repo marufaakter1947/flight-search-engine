@@ -21,7 +21,7 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <section className="py-5 mt-10 bg-linear-to-b from-sky-200 to-white rounded">
+    <section id="testimonials" className="py-5 mt-10 bg-linear-to-b from-sky-200 to-white rounded">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center text-sky-600">
           What Our Users Say

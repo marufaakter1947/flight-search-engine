@@ -25,20 +25,37 @@ const Footer = () => {
           <ul className="space-y-2 mt-4 font-medium">
             <li><Link to="/" className="hover:text-sky-200">Home</Link></li>
             <li><Link to="/flights" className="hover:text-sky-200">Flights</Link></li>
-            <li><Link to="/deals" className="hover:text-sky-200">Deals</Link></li>
-            <li><Link to="/about" className="hover:text-sky-200">About</Link></li>
+            <li><Link to="/about" className="hover:text-sky-200">About Us</Link></li>
+            <li><Link to="/contact" className="hover:text-sky-200">Contact Us</Link></li>
           </ul>
         </div>
 
         {/* Features */}
         <div className="flex flex-col items-center md:items-start">
           <h3 className="text-lg font-bold mb-4 mt-3">Explore</h3>
-          <ul className="space-y-2 font-medium">
-            <li><Link to="/my-trips" className="hover:text-sky-200">My Trips</Link></li>
-            <li><Link to="/popular-routes" className="hover:text-sky-200">Popular Routes</Link></li>
-            <li><Link to="/price-alerts" className="hover:text-sky-200">Price Alerts</Link></li>
-            <li><Link to="/support" className="hover:text-sky-200">Support</Link></li>
-          </ul>
+         <ul className="space-y-2 font-medium">
+  <li>
+    <a href="/#popular-routes" className="hover:text-sky-200">
+      Popular Routes
+    </a>
+  </li>
+  <li>
+    <a href="/#testimonials" className="hover:text-sky-200">
+      Testimonials
+    </a>
+  </li>
+  <li>
+    <a href="/#destinations" className="hover:text-sky-200">
+      Popular Destinations
+    </a>
+  </li>
+  <li>
+    <a href="/#faq" className="hover:text-sky-200">
+      Frequently Asked Questions
+    </a>
+  </li>
+</ul>
+
         </div>
 
         {/* Contact */}
