@@ -1,69 +1,5 @@
-// import { useEffect, useState } from "react";
-// import { useLocation } from "react-router";
-// import Loading from "./Loading";
-
-// const Deals = () => {
-//   const location = useLocation();
-//   const flight = location.state?.flight; // Flight data from FlightCard
-//   const [details, setDetails] = useState(flight || null);
-//   const [loading, setLoading] = useState(!flight);
-
-//   useEffect(() => {
-//     if (!flight) {
-//       fetch("http://localhost:5000/deals")
-//         .then(res => res.json())
-//         .then(data => setDetails(data[0] || null))
-//         .finally(() => setLoading(false));
-//     }
-//   }, [flight]);
-
-//   if (loading) return <Loading />;
-
-//   if (!details) return <p className="text-center text-gray-500">No deal data available</p>;
-
-//   return (
-//     <div className=" py-5">
-//       <div className="text-center mb-5">
-//         <h1 className="text-3xl md:text-4xl font-extrabold text-sky-600">Flight Deal Details</h1>
-//         <p className="text-gray-600 mt-2">
-//           Complete information about your selected flight
-//         </p>
-//       </div>
-
-//       <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4">
-//         <h2 className="font-bold text-xl">{details.itineraries ? `${details.itineraries[0].segments[0].departure.iataCode} → ${details.itineraries[0].segments.at(-1).arrival.iataCode}` : details.title}</h2>
-
-//         {details.itineraries && details.itineraries.map((itin, i) => (
-//           <div key={i} className="border p-4 rounded-lg space-y-2">
-//             <p><span className="font-semibold">Duration:</span> {itin.duration}</p>
-//             {itin.segments.map((seg, j) => (
-//               <div key={j} className="flex justify-between text-gray-700">
-//                 <p>{seg.departure.iataCode} → {seg.arrival.iataCode}</p>
-//                 <p>{seg.carrierCode} | Flight {seg.number}</p>
-//                 <p>{new Date(seg.departure.at).toLocaleString()} → {new Date(seg.arrival.at).toLocaleString()}</p>
-//               </div>
-//             ))}
-//           </div>
-//         ))}
-
-//         <p className="font-bold text-sky-600 text-lg">
-//           Price: ${details.price?.grandTotal || details.price}
-//         </p>
-
-//         <a
-//           href="#"
-//           className="bg-sky-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-sky-600 transition"
-//         >
-//           Book Now
-//         </a>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Deals;
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import Loading from "./Loading";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import toast, { Toaster } from "react-hot-toast";
@@ -73,8 +9,8 @@ const Deals = () => {
   const flight = location.state?.flight;
   const [details, setDetails] = useState(flight || null);
   const [loading, setLoading] = useState(!flight);
+   const navigate = useNavigate();
 
-  // Generate price trend for chart (mock data if needed)
   const [priceTrend, setPriceTrend] = useState([]);
 
   useEffect(() => {
@@ -109,10 +45,13 @@ const Deals = () => {
 
   const handleBook = () => {
     toast.success("This flight booked successfully!");
+     setTimeout(() => {
+      navigate("/");
+    }, 1500);
   };
 
   return (
-    <div className="py-5 max-w-5xl mx-auto px-4">
+    <div className="py-5">
       <Toaster position="top-right" />
       
       {/* Heading */}
