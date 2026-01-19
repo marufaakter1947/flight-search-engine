@@ -11,6 +11,7 @@ import Contact from "../Pages/Contact";
 import MyTrips from "../Pages/MyTrips";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import Terms from "../Pages/Terms";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/privacy-policy",
         element: <PrivacyPolicy></PrivacyPolicy>,
+      },
+      {
+        path: "/terms",
+        element: <Terms></Terms>,
       },
 
       
