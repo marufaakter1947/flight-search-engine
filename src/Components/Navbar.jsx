@@ -67,10 +67,15 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/about" className={activeNavLink}>
+                Contact Us
+              </NavLink>
+            </li>
+            {/* <li>
               <NavLink to="/deals" className={activeNavLink}>
                 Deals
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/my-trips" className={activeNavLink}>
                 My Trips
@@ -105,10 +110,15 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/contact" className={activeNavLink}>
+              Contact Us
+            </NavLink>
+          </li>
+          {/* <li>
             <NavLink to="/deals" className={activeNavLink}>
               Deals
             </NavLink>
-          </li>
+          </li> */}
            {user && (
             <li>
               <NavLink to="/my-trips" className={activeNavLink}>
