@@ -37,7 +37,7 @@ useEffect(() => {
   return (
     <div className="py-3">
       <h1 className="text-3xl md:text-4xl font-extrabold text-sky-600 mb-2 text-center">My Trips</h1>
-      <p className="text-gray-600 mt-2 text-center mb-5">From past trips to future adventures, view all of my flight bookings here.</p>
+      <p className="text-gray-600 mt-2 text-center mb-8">From past trips to future adventures, view all of my flight bookings here.</p>
 
       {trips.length === 0 ? (
         <p className="text-gray-500">You have not booked any flights yet.</p>

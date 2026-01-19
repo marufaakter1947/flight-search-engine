@@ -9,6 +9,7 @@ import Deals from "../Pages/Deals";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import MyTrips from "../Pages/MyTrips";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -45,9 +46,14 @@ const router = createBrowserRouter([
         path: "/deals",
         element: <Deals></Deals>,
       },
-      {
+      
+       {
         path: "/my-trips",
-        element: <MyTrips></MyTrips>
+        element: (
+          <PrivateRoute>
+            <MyTrips></MyTrips>
+          </PrivateRoute>
+        ),
       },
 
       
